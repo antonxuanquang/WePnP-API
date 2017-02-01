@@ -3,7 +3,7 @@ const MongoClient = require('mongodb').MongoClient;
 
 var database;
 var initDb = function() {
-    MongoClient.connect('mongodb://' + process.env.IP + ':' + process.env.DB_PORT + '/' + process.env.DB_NAME, function(err, db) {
+    MongoClient.connect(process.env.MONGOLAB_URI, function(err, db) {
         if(err || db === undefined || db === null) {
             throw err;
         } else {
